@@ -5,7 +5,16 @@ import { Animal } from './animal';
   selector: 'app-root',
   template: `
   <h1>Sanctuary City</h1>
-  <animal-detail></animal-detail>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6">
+      <animal-detail></animal-detail>
+    </div>
+
+    <div class="col-sm-6">
+      <h2>stuff for forms</h2>
+    </div>
+  </div>
   `,
 })
 
