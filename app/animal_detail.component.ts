@@ -5,13 +5,23 @@ import { Animal } from './animal';
   selector: 'animal-detail',
   template: `
   <div class="animal-detail" *ngFor="let animal of animals">
-    <h2>{{animal.name}}</h2>
+    <a><h2 (click)="animal.toggleDisplay()">{{animal.name}}, {{animal.species}}</h2></a>
+    <div *ngIf="animal.display">
+      <p>Location: {{animal.location}}</p>
+      <p>Age: {{animal.age}}</p>
+      <p>Sex: {{animal.sex}}</p>
+      <p>Diet: {{animal.diet}}</p>
+      <p>Number of Handlers: {{animal.numberOfCaretakers}}</p>
+      <p>Likes: {{animal.likes}}</p>
+      <p>Dislikes: {{animal.dislikes}}</p>
+    </div>
   </div>
   `,
 })
 
 export class AnimalDetailComponent implements OnInit {
   animals: Animal[];
+  
   ngOnInit() {
     this.animals = [
       new Animal(
@@ -46,7 +56,7 @@ export class AnimalDetailComponent implements OnInit {
         "Female",
         "Delicate roots and leaves",
         "Loud Noises",
-      )
+      ),
     ];
   }
 }

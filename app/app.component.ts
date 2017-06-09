@@ -12,7 +12,7 @@ import { Animal } from './animal';
     </div>
 
     <div class="col-sm-6">
-      <h2>stuff for forms</h2>
+      <new-animal-form></new-animal-form>
     </div>
   </div>
   `,

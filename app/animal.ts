@@ -1,15 +1,24 @@
 export class Animal {
+  display: boolean = false;
 
   constructor(
-    public species: string,
-    public name: string,
-    public age: number,
-    public diet: string,
-    public location: string,
-    public number_of_caretakers: number,
-    public sex: string,
-    public likes: string,
-    public dislikes: string,
-  ){}
+    public species: string = "unknown",
+    public name: string = "unnamed",
+    public age: number = 0,
+    public diet: string = "unknown",
+    public location: string = "unknown",
+    public numberOfCaretakers: number = 0,
+    public sex: string = "unknown",
+    public likes: string = "unknown",
+    public dislikes: string = "unknown",
+  ){ }
+
+  toggleDisplay() {
+    if (this.display === true) {
+      this.display = false;
+    } else {
+      this.display = true;
+    }
+  }
 
 }
