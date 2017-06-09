@@ -2,40 +2,47 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal';
 
 @Component({
-  selector: 'new-animal-form',
+  selector: 'edit-animal-form',
   template: `
-    <a *ngIf="!displayForm" class="btn btn-primary" (click)="toggleForm()">Add Animal</a>
+    <a *ngIf="!displayForm" class="btn btn-primary" (click)="toggleForm()">Edit</a>
     <form *ngIf="displayForm">
       <div class="form-group">
         <label>Species</label>
-        <input class="form-control" name="species" [(ngModel)]="species">
+        <input class="form-control" name="species" [(ngModel)]="animal.species">
         <label>Name</label>
-        <input class="form-control" name="name" [(ngModel)]="name">
+        <input class="form-control" name="name" [(ngModel)]="animal.name">
         <label>Age</label>
-        <input class="form-control" type="number" name="age" [(ngModel)]="age">
+        <input class="form-control" type="number" name="age" [(ngModel)]="animal.age">
         <label>Sex</label>
-        <input class="form-control" name="sex" [(ngModel)]="sex">
+        <input class="form-control" name="sex" [(ngModel)]="animal.sex">
         <label>Location</label>
-        <input class="form-control" name="location" [(ngModel)]="location">
+        <input class="form-control" name="location" [(ngModel)]="animal.location">
         <label>Diet</label>
-        <input class="form-control" name="diet" [(ngModel)]="diet">
+        <input class="form-control" name="diet" [(ngModel)]="animal.diet">
         <label>Number of Handlers</label>
-        <input class="form-control" type="number" name="handlers" [(ngModel)]="handlers">
+        <input class="form-control" type="number" name="handlers" [(ngModel)]="animal.numberOfCaretakers">
         <label>Likes</label>
-        <input class="form-control" name="likes" [(ngModel)]="likes">
+        <input class="form-control" name="likes" [(ngModel)]="animal.likes">
         <label>Dislikes</label>
-        <input class="form-control" name="dislikes" [(ngModel)]="dislikes">
+        <input class="form-control" name="dislikes" [(ngModel)]="animal.dislikes">
       </div>
-      <a class="btn btn-primary" (click)="toggleForm(); update(species.value, name.value, age.value, sex.value, location.value, diet.value, handlers.value, likes.value, dislikes.value)">Add Animal</a>
+      <a class="btn btn-primary" (click)="toggleForm()">Edit</a>
     </form>
   `,
 })
 
-export class NewAnimalFormComponent implements OnInit {
+export class EditAnimalFormComponent implements OnInit {
   displayForm: boolean = false;
-  @Output() saveAnimal = new EventEmitter();
+  @Input() animal;
 
   ngOnInit() {
+  }
 
+  toggleForm() {
+    if (this.displayForm === true) {
+      this.displayForm = false;
+    } else {
+      this.displayForm = true;
+    }
   }
 }

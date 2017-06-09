@@ -14,6 +14,7 @@ import { Animal } from './animal';
       <p>Number of Handlers: {{animal.numberOfCaretakers}}</p>
       <p>Likes: {{animal.likes}}</p>
       <p>Dislikes: {{animal.dislikes}}</p>
+      <edit-animal-form [animal]="animal"></edit-animal-form>
     </div>
   </div>
   `,
@@ -26,4 +27,5 @@ export class AnimalDetailComponent implements OnInit {
   ngOnInit() {
 
   }
+
 }
