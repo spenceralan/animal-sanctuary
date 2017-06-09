@@ -26,7 +26,7 @@ import { Animal } from './animal';
         <label>Dislikes</label>
         <input class="form-control" name="dislikes" [(ngModel)]="animal.dislikes">
       </div>
-      <a class="btn btn-primary" (click)="toggleForm()">Edit</a>
+      <a class="btn btn-primary" (click)="toggleForm()">Submit</a>
     </form>
   `,
 })

@@ -26,7 +26,7 @@ import { Animal } from './animal';
         <label>Dislikes</label>
         <input class="form-control" #dislikes>
       </div>
-      <a class="btn btn-primary" (click)="toggleForm(); save(species.value, name.value, age.value, sex.value, location.value, diet.value, handlers.value, likes.value, dislikes.value)">Add Animal</a>
+      <a class="btn btn-primary" (click)="toggleForm(); save(species.value, name.value, age.value, sex.value, location.value, diet.value, handlers.value, likes.value, dislikes.value)">Submit</a>
     </form>
   `,
 })
