@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal';
 
 @Component({
@@ -26,30 +26,32 @@ import { Animal } from './animal';
         <label>Dislikes</label>
         <input class="form-control" #dislikes>
       </div>
-      <a class="btn btn-primary" (click)="toggleForm()">Add Animal</a>
+      <a class="btn btn-primary" (click)="toggleForm(); save(species.value, name.value, age.value, sex.value, location.value, diet.value, handlers.value, likes.value, dislikes.value)">Add Animal</a>
     </form>
   `,
 })
 
 export class NewAnimalFormComponent implements OnInit {
   displayForm: boolean = false;
-  
+  @Output() saveAnimal = new EventEmitter();
+
   ngOnInit() {
 
   }
 
   save(species, name, age, sex, location, diet, handlers, likes, dislikes) {
     let newAnimal = new Animal(
-      species.value,
-      name.value,
-      Number(sex.value),
-      diet.value,
-      location.value,
-      Number(handlers.value),
-      sex.value,
-      likes.value,
-      dislikes.value,
+      species,
+      name,
+      Number(sex),
+      diet,
+      location,
+      Number(handlers),
+      sex,
+      likes,
+      dislikes,
     )
+    this.saveAnimal.emit(newAnimal);
   }
 
   toggleForm() {
