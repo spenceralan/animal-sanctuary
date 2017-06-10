@@ -5,6 +5,7 @@ import { Animal } from './animal';
   selector: 'new-animal-form',
   template: `
     <a *ngIf="!displayForm" class="btn btn-primary" (click)="toggleForm()">Add Animal</a>
+    <a *ngIf="displayForm" class="btn btn-primary" (click)="toggleForm()">Hide Form</a>
     <form *ngIf="displayForm">
       <div class="form-group">
         <label>Species</label>
