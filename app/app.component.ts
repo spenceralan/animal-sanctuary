@@ -4,7 +4,7 @@ import { Animal } from './animal';
 @Component({
   selector: 'app-root',
   template: `
-  <h1>Sanctuary City</h1>
+  <h1>Species Sanctuary</h1>
   <hr>
   <div class="row">
     <div class="col-sm-6">
