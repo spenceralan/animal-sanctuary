@@ -4,7 +4,7 @@ import { Animal } from './animal';
 @Component({
   selector: 'animal-detail',
   template: `
-  <div class="animal-detail" *ngFor="let animal of animals">
+  <div class="animal-detail" *ngFor="let animal of animals | agePipe:ageFilter">
     <a><h2 (click)="animal.toggleDisplay()">{{animal.name}}, {{animal.species}}</h2></a>
     <div *ngIf="animal.display">
       <p>Location: {{animal.location}}</p>
@@ -23,6 +23,7 @@ import { Animal } from './animal';
 export class AnimalDetailComponent implements OnInit {
   
   @Input() animals;
+  @Input() ageFilter;
 
   ngOnInit() {
 

@@ -8,7 +8,12 @@ import { Animal } from './animal';
   <hr>
   <div class="row">
     <div class="col-sm-6">
-      <animal-detail [animals]="animals"></animal-detail>
+    <select class="form-control" (change)="onChange($event.target.value)">
+      <option value="allAnimals" selected="selected">All Animals</option>
+      <option value="youngAnimals">Young Animals</option>
+      <option value="oldAnimals">Old Animals</option>
+    </select>
+      <animal-detail [animals]="animals" [ageFilter]="ageFilter"></animal-detail>
     </div>
 
     <div class="col-sm-6">
@@ -19,7 +24,7 @@ import { Animal } from './animal';
 })
 
 export class AppComponent implements OnInit {
-
+  ageFilter: string = "allAnimals";
   animals: Animal[] = [
     new Animal(
       "Arctic Fox",
@@ -62,6 +67,10 @@ export class AppComponent implements OnInit {
 
   save(animal) {
     this.animals.push(animal);
+  }
+
+  onChange(optionFromMenu) {
+    this.ageFilter = optionFromMenu;
   }
 
 }
